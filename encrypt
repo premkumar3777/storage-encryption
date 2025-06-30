@@ -1,0 +1,71 @@
+# 🔐 Cloud Storage Encryption Review Report
+
+This repository contains a detailed assessment of encryption methods applied to cloud storage (AWS S3). It includes default server-side encryption, client-side encryption implementation, access control testing, and a comparison of encryption strategies.
+
+---
+
+## 📋 Report Overview
+
+The report includes:
+- ✅ Evaluation of default S3 encryption (SSE-S3, SSE-KMS)
+- ✅ Implementation of client-side encryption using OpenSSL
+- ✅ Testing IAM roles and bucket policies
+- ✅ Comparison between SSE-KMS and client-side encryption
+- ✅ Recommendations for optimal encryption practices
+
+---
+
+## 🧪 Test Summary
+
+### 🔒 Default Encryption (AWS S3)
+- **SSE-S3**: Uses AWS-managed keys for server-side encryption
+- **SSE-KMS**: Uses AWS Key Management Service for enhanced control and audit logging
+- **In Transit**: TLS (HTTPS) ensures data protection during upload/download
+
+### 🛠️ Client-Side Encryption
+- Tool: **OpenSSL**
+- Algorithm: **AES-256-CBC**
+- Process:
+  - Generate AES key and IV
+  - Encrypt file locally
+  - Upload encrypted file to S3
+  - Decrypt using same key and IV
+
+---
+
+## 🔐 Access Control Validation
+- IAM roles and bucket policies were configured to enforce least-privilege access
+- Unauthorized access attempts returned **AccessDenied**, confirming controls are effective
+
+---
+
+## 🔄 Comparison: SSE-KMS vs Client-Side Encryption
+
+| Feature              | SSE-KMS                         | Client-Side Encryption            |
+|---------------------|----------------------------------|----------------------------------|
+| Key Management       | AWS-managed                     | User-managed                     |
+| Integration          | Native AWS tools                | Manual                           |
+| Audit Logging        | Yes (CloudTrail)                | No                               |
+| Performance          | Minimal overhead                | Some client-side overhead        |
+| Use Case             | Most enterprise data            | Highly sensitive/confidential    |
+
+---
+
+## ✅ Recommendation
+
+Use **SSE-KMS** for general-purpose sensitive data due to ease of use, logging, and native AWS integration.  
+Use **Client-Side Encryption** only for highly regulated or ultra-sensitive data when key ownership must remain fully in your control.
+
+---
+
+## 📄 Download the Full Report
+
+[📥 Download PDF](https://github.com/your-username/your-repo-name/blob/main/Cloud_Storage_Encryption_Report.pdf)
+
+> 🔁 Replace the link above with your actual GitHub username and repo name.
+
+---
+
+## 📌 License
+
+This repository is intended for academic, training, and compliance review purposes only.
